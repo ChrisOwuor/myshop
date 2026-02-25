@@ -1,38 +1,43 @@
-# Green Pastures Farm Shop (React + Tailwind + React Router v6)
+# Green Pastures Farm Shop
 
-This implementation now uses:
+This version is a **stable static storefront** so preview works without dependency installs.
 
-- React + Vite
-- React Router DOM v6 for routing
-- Tailwind CSS for styling
+## What is fixed
 
-## Pages / features
+- Removed broken Vite/React/Tailwind runtime dependency path that failed in this environment.
+- `npm run preview` now serves the site directly via Python HTTP server.
+- Restored a working storefront with:
+  - Navbar
+  - Home/product listing with images
+  - Single product page
+  - Related products
+  - Reviews
+  - Cart page
+  - Checkout with payment options
+  - Tracking page
+  - Profile page
+  - Login/logout pages
+  - Scroll reveal animations
+  - Prices in KSh
 
-- Navbar
-- Home with image cards and scroll reveal
-- Single product page
-- Related products
-- Reviews
-- Cart page
-- Checkout page with payment options
-- Tracking page
-- Profile page
-- Login/logout pages
-- Prices displayed in KSh
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-## Backend base URL
-
-Create `.env` (optional):
+## Run
 
 ```bash
-VITE_API_BASE_URL=https://your-backend.example.com/api
+npm run preview
 ```
 
-The checkout template and API references use `import.meta.env.VITE_API_BASE_URL`.
+Open:
+
+- `http://localhost:4173`
+
+## Backend template endpoints
+
+`app.js` exposes backend-ready endpoint templates on `window.__farmApiTemplates`:
+
+- `${API_BASE_URL}/products`
+- `${API_BASE_URL}/checkout`
+- `${API_BASE_URL}/tracking`
+
+Default base URL in code is:
+
+- `http://localhost:8000/api`
